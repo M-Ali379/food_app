@@ -1,0 +1,34 @@
+<?php
+session_start();
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
+// Connect to DB
+$conn = new mysqli("localhost", "root", "", "food_app", 3307);
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+// Handle login form
+if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["username"]) && isset($_POST["password"])) {
+    $username = $_POST['username'];
+    $password = $_POST['password'];
+
+    $stmt = $conn->prepare("SELECT * FROM user WHERE username = ?");
+    $stmt->bind_param("s", $username);
+    $stmt->execute();
+    $result = $stmt->get_result();
+
+    if ($result->num_rows === 1) {
+        $user = $result->fetch_assoc();
+        if (password_verify($password, $user['password'])) {
+            $_SESSION['logged_in'] = true;
+            $_SESSION['username'] = $user['username'];
+            header("Location: menu.html"); // redirect after login
+            exit();
+        }
+    }
+
+    echo "<script>alert('Invalid credentials.'); window.location.href='login.html';</script>";
+}
+?>

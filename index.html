@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Food Website</title>
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+
+    <!-- Bootstrap 5 (Latest) -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;600&display=swap"
+        rel="stylesheet">
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+ 
+<body>
+    <!-- Order Modal -->
+    <div class="modal fade" id="orderModal" tabindex="-1" aria-labelledby="orderModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <form id="orderForm">
+            <div class="modal-header">
+              <h5 class="modal-title" id="orderModalLabel">Place Your Order</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <div class="mb-3">
+                <label for="order-name" class="form-label">Name</label>
+                <input type="text" class="form-control" id="order-name" required>
+              </div>
+              <div class="mb-3">
+                <label for="order-phone" class="form-label">Phone</label>
+                <input type="tel" class="form-control" id="order-phone" required>
+              </div>
+              <input type="hidden" id="order-item">
+            </div>
+            <div class="modal-footer">
+              <button type="submit" class="btn btn-primary">Place Order</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- Admin Orders Modal -->
+    <div class="modal fade" id="adminModal" tabindex="-1" aria-labelledby="adminModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="adminModalLabel">Orders</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body" id="adminOrders">
+            <!-- Orders will be loaded here -->
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Header -->
+    
+
+   <div id="header"></div>
+
+    <!-- Main Section -->
+    <section class="main-banner py-5" id="home">
+        <div class="container">
+            <div class="row align-items-center">
+                <!-- Left Column: Image -->
+                <div class="col-md-6 text-center text-md-left mb-4 mb-md-0">
+                    <img src="public/testimonial-img.png" alt="Restaurant Banner" class="img-fluid rounded">
+                </div>
+
+                <!-- Right Column: Text -->
+                <div class="col-md-6 text-center text-md-left">
+                    <h1 class="display-4">Welcome to <span class="highlight">MR_SIDDIQUI Pakistani</span> Restaurant
+                    </h1>
+                    <p class="lead">Delicious food, great ambiance, and authentic recipes await you.</p>
+                    <a href="#menu" class="sec-btn mt-3">Check Our Menu</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- Menu Section -->
+    <style>
+        #menu-items .btn.btn-primary {
+            background-color: rgb(78, 190, 231);
+            border-color: rgb(78, 190, 231);
+        }
+        #menu-items .btn.btn-primary:hover {
+            background-color: rgb(78, 190, 231);
+            border-color: rgb(78, 190, 231);
+        }
+    </style>
+
+
+
+    <section id="menu" class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-5">
+                <a  target="_blank" style="text-decoration: none; color: inherit;">Our Menu</a>
+            </h2>
+            <div class="row text-center" id="menu-items">
+                <div class="col-md-4">
+                    <img src="public/2.png" alt="Grilled Chicken" class="img-fluid mb-3" style="border-radius: 10px;">
+                    <h4>Grilled Chicken</h4>
+                    <p>Perfectly grilled chicken with spices</p>
+                    <p><strong>Rs. 359</strong></p>
+                </div>
+                <div class="col-md-4">
+                    <img src="public/3.png" alt="Paneer Noodles" class="img-fluid mb-3" style="border-radius: 10px;">
+                    <h4>Paneer Noodles</h4>
+                    <p>Spicy and tasty paneer mixed noodles</p>
+                    <p><strong>Rs. 149</strong></p>
+                </div>
+                <div class="col-md-4">
+                    <img src="public/1.png" alt="Immunity Dish" class="img-fluid mb-3" style="border-radius: 10px;">
+                    <h4>Immunity Dish</h4>
+                    <p>Healthy vegetarian dish full of nutrition</p>
+                    <p><strong>Rs. 159</strong></p>
+                </div>
+                <div class="col-md-4">
+                    <img src="public/barbe2.jpg" alt="Immunity Dish" class="img-fluid mb-3" style="border-radius: 10px;">
+                    <h4>grilled style</h4>
+                    <p>Healthy vegetarian dish full of nutrition</p>
+                    <p><strong>Rs. 169</strong></p>
+                </div>
+                <div class="col-md-4">
+                    <img src="public/barbe3.jpg" alt="Immunity Dish" class="img-fluid mb-3" style="border-radius: 10px;">
+                    <h4>Grilled Meet</h4>
+                    <p>Healthy vegetarian dish full of nutrition</p>
+                    <p><strong>Rs. 200</strong></p>
+                </div>
+                <div class="col-md-4">
+                    <img src="public/barbe4.jpeg" alt="Immunity Dish" class="img-fluid mb-3"
+                        style="border-radius: 10px; height: 280px;">
+                    <h4>Grilled beef</h4>
+                    <p>Healthy vegetarian dish full of nutrition</p>
+                    <p><strong>Rs. 250</strong></p>
+                </div>
+                <div class="text-center">
+                      <button onclick="window.location.href='menu.html'" class="more-orders-btn">More Items</button>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Reviews Section -->
+
+<li><a href="#reviews">Reviews</a></li>
+
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center mb-5">Reviews</h2>
+            <div class="row">
+                <div class="col-md-4 mb-3">
+                    <img src="public/bt1.jpg" class="img-fluid rounded" alt="Dish 1">
+                    <a href="review.html"><button>Gave the review</button></a>
+
+                </div>
+                <div class="col-md-4 mb-3">
+                    <img src="public/bt2.jpg" class="img-fluid rounded" alt="Dish 2">
+                    <a href="review.html"><button>Gave the review</button></a>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <img src="public/bt3.jpg" class="img-fluid rounded" alt="Dish 3">
+                    <a href="review.html"><button>Gave the review</button></a>
+                </div>
+            </div>
+        </div>
+        <style>
+            .gallery-review-btn {
+                display: block;
+                margin: 18px auto 0 auto;
+                background-color: rgb(93, 203, 240);
+                color: #fff;
+                border: none;
+                border-radius: 25px;
+                padding: 10px 28px;
+                font-size: 1rem;
+                font-weight: 600;
+                box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+                transition: background 0.2s, transform 0.2s;
+                cursor: pointer;
+            }
+            .gallery-review-btn:hover {
+                background-color: rgb(93, 203, 240);
+                transform: translateY(-2px) scale(1.04);
+            }
+        </style>
+        <script>
+            // Replace all "Gave the review" buttons in gallery with styled button
+            document.addEventListener('DOMContentLoaded', function() {
+                document.querySelectorAll('#gallery .row .col-md-4 a button').forEach(function(btn) {
+                    btn.classList.add('gallery-review-btn');
+                    btn.innerText = 'Give a Review';
+                });
+            });
+        </script>
+        <div class="container">
+            <h2 class="text-center mb-5"></h2>
+            <div class="row">
+                <div class="col-md-4 mb-3">
+                    <img src="public/bt4.jpg" class="img-fluid rounded" alt="Dish 1">
+                    <a href="review.html"><button>Gave the review</button></a>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <img src="public/about.jpg" class="img-fluid rounded" alt="Dish 2">
+                    <a href="review.html"><button>Gave the review</button></a>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <img src="public/barbeque1.jpg" class="img-fluid rounded" alt="Dish 3">
+                    <a href="review.html"><button>Gave the review</button></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Section -->
+    <section id="blog" class="py-5">
+        <div class="container">
+            <a href="blog.html" target="_blank">
+                <h2 class="text-center mb-5">Our Blog</h2>
+            </a>
+            <div class="row">
+                <div class="col-md-6">
+                    <h5>How to cook perfect Pakistani curry</h5>
+                    <p>Learn tips and tricks from our chefs to cook the perfect curry at home.</p>
+                </div>
+                <div class="col-md-6">
+                    <h5>Healthy eating habits</h5>
+                    <p>Discover how Pakistani spices and recipes can promote wellness and health.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <hr>
+    <!-- About & Contact Section Combined -->
+    <section id="about-contact" class="py-5 bg-light">
+        <div class="container">
+            <div class="row text-center">
+                <!-- About Us -->
+                <div class="col-md-6 mb-4 mb-md-0">
+                    <a href="about.html" target="_blank">
+                        <h2 class="mb-3">About Us</h2>
+                    </a>
+
+                    <p class="lead">We serve the best Pakistani food made with fresh ingredients and traditional
+                        recipes. Discover our story and why people love our dishes.</p>
+                </div>
+
+                <!-- Contact -->
+                <div class="col-md-6">
+                    <h2 class="mb-4">Get in Touch</h2>
+                    <a href="contact.html" target="_blank">
+                        <i class="fas fa-phone fa-3x"></i>
+                    </a>
+                    <p class="mt-3">Click the icon to contact us</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-4 bg-dark text-white text-center">
+        <div class="container">
+                      <button onclick="window.location.href='policy.html'" class="more-orders-btn">policy</button>
+        </div>
+
+        <a href="menu.html" class="text-white">© 2025 MR_SIDDIQUI Restaurant. All rights reserved.</a>
+        <div class="mt-3">
+            <a href="https://www.facebook.com/" target="_blank" class="text-white me-3"><i
+                    class="fab fa-facebook-f"></i></a>
+            <a href="https://www.instagram.com/" target="_blank" class="text-white me-3"><i
+                    class="fab fa-instagram"></i></a>
+            <a href="https://www.twitter.com/" target="_blank" class="text-white"><i class="fab fa-twitter"></i></a>
+    </footer>
+
+    <!-- Bootstrap 5 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script src="script.js"></script>
+    
+    <!-- ...existing code... -->
+<script>
+  fetch('header.html')
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('header').innerHTML = data;
+    });
+</script>
+
+<script>/*
+  // Save order to localStorage
+}*/
+
+// Save order to localStorage
+
+
+function saveOrder(order) {
+    let orders = JSON.parse(localStorage.getItem('orders')) || [];
+    orders.push(order);
+    localStorage.setItem('orders', JSON.stringify(orders));
+}
+
+// Show order form modal
+function showOrderForm(itemName) {
+    document.getElementById('order-item').value = itemName;
+    new bootstrap.Modal(document.getElementById('orderModal')).show();
+}
+
+// Handle order form submission
+function submitOrderForm(event) {
+    event.preventDefault();
+
+    const name = document.getElementById('order-name').value;
+    const phone = document.getElementById('order-phone').value;
+    const item = document.getElementById('order-item').value;
+
+    // Prepare data to send to PHP
+    const orderData = {
+        name: name,
+        phone: phone,
+        item: item
+    };
+
+    // Send data to server for database insertion
+    fetch('submit_order.php', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(orderData)
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.status === 'success') {
+            alert('Order placed successfully! Receipt ID: ' + data.order_id);
+            saveOrder({ ...orderData, time: new Date().toLocaleString() });
+            document.getElementById('orderForm').reset();
+            bootstrap.Modal.getInstance(document.getElementById('orderModal')).hide();
+        } else {
+            alert('Failed to place order: ' + data.message);
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        alert('An error occurred while placing the order.');
+    });
+}
+
+// Show orders in admin view
+function showOrdersForAdmin() {
+    let orders = JSON.parse(localStorage.getItem('orders')) || [];
+    let html = '<h4>User Orders</h4><ul class="list-group">';
+    if (orders.length === 0) {
+        html += '<li class="list-group-item">No orders yet.</li>';
+    } else {
+        orders.forEach(order => {
+            html += `<li class="list-group-item">
+                <strong>${order.name}</strong> (${order.phone}) ordered <em>${order.item}</em> at ${order.time}
+            </li>`;
+        });
+    }
+    html += '</ul>';
+    document.getElementById('adminOrders').innerHTML = html;
+    new bootstrap.Modal(document.getElementById('adminModal')).show();
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Add order buttons to menu items
+    document.querySelectorAll('#menu-items .col-md-4').forEach(function(card) {
+        const itemName = card.querySelector('h4').innerText;
+        const btn = document.createElement('button');
+        btn.className = 'btn btn-primary mt-2';
+        btn.innerText = 'Order Now';
+        btn.onclick = function() { showOrderForm(itemName); };
+        card.appendChild(btn);
+    });
+
+    // Add admin button to footer
+    const adminBtn = document.createElement('button');
+    adminBtn.className = 'btn btn-warning ms-3';
+    adminBtn.innerText = 'Admin: View Orders';
+    adminBtn.onclick = showOrdersForAdmin;
+    document.querySelector('footer .container').appendChild(adminBtn);
+
+    // Attach form submit handler
+    document.getElementById('orderForm').onsubmit = submitOrderForm;
+});
+
+
+
+</Script>
+
+<!-- ...existing code... -->
+
+</body>
+
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Discover:Mr_SIDDIQUI Restaurant Blog</title>
+   <div id="header"></div>
+
+  <style>
+/* Reset & Font */
+
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to right, #5ac8f5, #f8e0c0);
+      margin: 0;
+      padding: 20px;
+      color: #333;
+    }
+    
+a {
+    color: black;
+    text-decoration: none;
+}
+    
+
+    img {
+      width: 100%;
+      max-height: 400px;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+  </style>
+</head>
+
+<body>
+   <div id="header-container">
+
+   
+   </div>
+    
+
+  <!-- Header -->
+  <div id= "header"></div>
+
+  <main>
+    <img src="https://example.com/pakistani-food.jpg" alt="Pakistani Dishes">
+
+    <h2>About Our Restaurant</h2>
+    <p>
+      Located in the heart of the city, <strong>Spice & Soul</strong> offers an authentic taste of Pakistan. Our chefs
+      bring traditional recipes passed down through generations, using spices and techniques that make each dish a
+      celebration of culture and flavor.
+    </p>
+
+    <h2>What Makes Us Special</h2>
+    <ul>
+      <li>Freshly ground spices daily</li>
+      <li>Traditional Pakistani ambiance</li>
+      <li>Signature dishes like Biryani, Nihari, and Seekh Kebabs</li>
+      <li>Warm hospitality that makes you feel at home</li>
+    </ul>
+
+    <h2>Customer Favorites</h2>
+    <p>
+      Our most loved dishes include:
+    </p>
+    <ol>
+      <li>Chicken Karahi</li>
+      <li>Beef Biryani</li>
+      <li>Haleem with fresh naan</li>
+      <li>Falooda and Kulfi for dessert</li>
+    </ol>
+
+    <h2>Visit Us</h2>
+    <p>
+      Come enjoy a dining experience that feels like home. We are open every day from 12:00 PM to 11:00 PM.
+      For reservations, call us at <strong>(+92) 310-62137 37</strong>.
+    </p>
+  </main>
+
+  <footer>
+    &copy; 2025 Spice & Soul | Designed with ❤️ in Pakistan
+  </footer>
+<script>
+  fetch('header.html')
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('header').innerHTML = data;
+    });
+</script>
+</body>
+
+</html>

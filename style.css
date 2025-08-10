@@ -1,0 +1,125 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f9f9f9;
+    color: #1c1c1e;
+}
+
+a {
+    color: black;
+    text-decoration: none;
+}
+
+.site-header {
+    background-color: aqua;
+}
+.site-header .nav-link {
+    color: #000;
+    transition: color 0.3s ease;
+}
+.site-header .nav-link:hover {
+    color: black;
+    text-decoration: underline;
+}
+a:hover {
+    color:  white;
+}
+.sec-btn {
+    background-color:rgb(10, 107, 143);
+    color: white;
+    border: none;
+    border-radius: 30px;
+    padding: 12px 28px;
+    font-weight: 600;
+    font-size: 1rem;
+    text-transform: capitalize;
+}
+
+.sec-btn:hover {
+    background-color:  black;
+}
+
+.site-header {
+    background-color: #fff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.main-banner {
+    background: linear-gradient(to right,  rgb(78, 190, 231), #ffe8cc);
+    padding: 100px 0;
+}
+
+.main-banner h1 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 3rem;
+}
+.main-banner p.lead {
+    font-size: 1.25rem;
+    margin-bottom: 30px;
+}
+#menu .col-md-4:hover {
+    background-color: rgb(78, 190, 231);
+    transition-duration: 2s;
+    color: white;
+  
+}
+
+.highlight {
+    color:rgb(10, 107, 143);
+}
+
+section h2 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 2.5rem;
+    color: #1c1c1e;
+}
+
+.img-fluid.hover{
+background-color: rgb(10, 107, 143);
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+}
+
+
+.menu{
+    
+    background-color: rgb(10, 107, 143); ;
+}
+
+ @media (min-width: 768px) {
+      .sidebar {
+        flex: 1 1 30%;
+      } .main {
+        flex: 1 1 70%;
+      }
+    }
+
+    .more-orders-btn {
+  background-color:rgb(93, 203, 240);
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 20px;
+}
+
+.more-orders-btn:hover {
+  background-color: rgb(10, 107, 143);
+  transition-duration: 2s;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+.footer {
+    background: #f1f1f1;
+    padding: 20px 0;
+    text-align: center;
+    color: #333;
+}
+
+
